@@ -8,7 +8,7 @@ function App() {
     { speaker: 'bot', text: 'こんにちは！' }
   ]);
   const chatAreaRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLTextAreaElement>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
   const bot = useRef(new SalmonBot());
 
@@ -28,8 +28,22 @@ function App() {
     ]);
     if (inputRef.current) {
       inputRef.current.value = '';
+      inputRef.current.style.height = '48px';
       inputRef.current.focus();
     }
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === 'Enter' && !e.shiftKey && !e.nativeEvent.isComposing) {
+      e.preventDefault();
+      handleSend();
+    }
+  };
+
+  const handleInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const textarea = e.target;
+    textarea.style.height = '48px'; // 初期化
+    textarea.style.height = textarea.scrollHeight + 'px';
   };
 
   return (
@@ -51,11 +65,14 @@ function App() {
       </div>
       <div className={styles.inputArea}>
         <div className={styles.inputWrapper}>
-          <input
-            type="text"
+          <textarea
             ref={inputRef}
             className={styles.input}
             placeholder="メッセージを入力"
+            rows={1}
+            onKeyDown={handleKeyDown}
+            onInput={handleInput}
+            style={{resize: 'none', overflow: 'hidden'}}
           />
           <button onClick={handleSend} className={styles.sendButton}>
             <MdSend size={22} />
