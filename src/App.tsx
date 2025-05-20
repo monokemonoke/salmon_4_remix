@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import styles from './App.module.css';
 import { SalmonBot } from './SalmonBot';
+import { MdSend } from 'react-icons/md';
 
 function App() {
   const [messages, setMessages] = useState([
@@ -56,7 +57,9 @@ function App() {
             className={styles.input}
             placeholder="メッセージを入力"
           />
-          <button onClick={handleSend} className={styles.sendButton}>送信</button>
+          <button onClick={handleSend} className={styles.sendButton}>
+            <MdSend size={22} />
+          </button>
         </div>
       </div>
     </div>

@@ -3,6 +3,7 @@
   --color-bg-dark: #232d25;
   --color-surface: #fdfdfdcc;
   --color-surface-dark: #2e3b32cc;
+  --color-primary-surface: #43a047cc;
   --color-primary: #43a047;
   --color-primary-dark: #7ed957;
   --color-border: #b5b5b5;
@@ -160,13 +161,13 @@ body {
 .sendButton {
   position: absolute;
   right: 12px;
-  bottom: 18px;
-  background: var(--color-primary);
+  bottom: 14px;
+  background: hsl(123, 41%, 70%);
   color: #fff;
   border: none;
   height: 36px;
   width: 36px;
-  border-radius: 50%;
+  border-radius: 20%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -183,6 +184,12 @@ body {
   cursor: not-allowed;
   opacity: 0.5;
   box-shadow: none;
+}
+.sendButton:hover {
+  background: hsl(123, 41%, 70%);
+}
+.sendButton:focus {
+  background: hsl(123, 41%, 30%);
 }
 .finished {
   text-align: center;
