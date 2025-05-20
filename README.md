@@ -1,3 +1,9 @@
+# Web Chatbot
+
+## 公開URL
+
+[https://monokemonoke.github.io/salmon_4_remix/](https://monokemonoke.github.io/salmon_4_remix/)
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
