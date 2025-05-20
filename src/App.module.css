@@ -1,19 +1,22 @@
 :root {
-  --color-bg: #f6fbf7;
-  --color-bg-dark: #232d25;
-  --color-surface: #fdfdfdcc;
-  --color-surface-dark: #2e3b32cc;
-  --color-primary-surface: #43a047cc;
-  --color-primary: #43a047;
-  --color-primary-dark: #7ed957;
-  --color-border: #b5b5b5;
-  --color-border-dark: #3a4a3a;
-  --color-text: #222;
-  --color-text-dark: #f6fbf7;
-  --color-btn: #43a047;
-  --color-btn-dark: #7ed957;
+  --color-bg: #f6ede4;
+  --color-bg-dark: #f6ede4;
+  --color-surface: #e2c9b0cc;
+  --color-surface-dark: #e2c9b0cc;
+  --color-primary-surface: #c9a882cc;
+  --color-primary: #a97c50;
+  --color-primary-dark: #7a5632;
+  --color-border: #a97c50;
+  --color-border-dark: #7a5632;
+  --color-text: #4b3a28;
+  --color-text-dark: #fff;
+  --color-btn: #a97c50;
+  --color-btn-dark: #7a5632;
   --color-btn-text: #fff;
-  --color-btn-text-dark: #232d25;
+  --color-btn-text-dark: #f6ede4;
+  --color-brown-light: #f6ede4;
+  --color-brown: #a97c50;
+  --color-brown-dark: #7a5632;
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -24,6 +27,9 @@
     --color-text: var(--color-text-dark);
     --color-btn: var(--color-btn-dark);
     --color-btn-text: var(--color-btn-text-dark);
+    --color-brown-light: #f6ede4;
+    --color-brown: #a97c50;
+    --color-brown-dark: #7a5632;
   }
 }
 
@@ -93,18 +99,19 @@ body {
   word-break: break-word;
 }
 .userMsg {
-  background: #e0e0e0;
-  color: #222;
+  background: var(--color-brown-light);
+  color: var(--color-brown-dark);
   align-self: flex-end;
   border-bottom-right-radius: 32px;
   border-top-right-radius: 32px;
 }
 .botMsg {
-  background: #f1f8e9;
-  color: #222;
+  background: var(--color-brown);
+  color: #fff;
   align-self: flex-start;
   border-bottom-left-radius: 32px;
   border-top-left-radius: 32px;
+  border-left: 4px solid var(--color-brown-dark);
 }
 .speaker {
   font-weight: bold;
@@ -130,7 +137,7 @@ body {
   max-width: 700px;
   display: flex;
   align-items: flex-end;
-  background: #f7f7f8;
+  background: var(--color-bg);
   border-radius: 24px;
   padding: 8px 0 8px 0;
   box-shadow: 0 2px 16px 0 #0001;
@@ -142,10 +149,10 @@ body {
   max-height: 160px;
   padding: 14px 56px 14px 20px;
   border-radius: 24px;
-  border: 1.5px solid var(--color-primary);
+  border: 1.5px solid var(--color-brown);
   font-size: 1.08rem;
   background: var(--color-bg);
-  color: var(--color-text);
+  color: var(--color-brown-dark);
   transition: border 0.2s;
   box-shadow: 0 2px 16px 0 #0001;
   resize: none;
@@ -155,14 +162,14 @@ body {
 }
 .input:focus {
   outline: none;
-  border: 2px solid var(--color-primary);
+  border: 2px solid var(--color-brown-dark);
   box-shadow: 0 2px 24px 0 #43a04722;
 }
 .sendButton {
   position: absolute;
   right: 12px;
   bottom: 14px;
-  background: hsl(123, 41%, 70%);
+  background: var(--color-brown);
   color: #fff;
   border: none;
   height: 36px;
@@ -173,7 +180,7 @@ body {
   justify-content: center;
   z-index: 2;
   transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-  box-shadow: 0 2px 8px 0 #43a04733;
+  box-shadow: 0 2px 8px 0 #a97c5033;
   cursor: pointer;
   padding: 0;
   font-size: 1.2rem;
@@ -186,10 +193,13 @@ body {
   box-shadow: none;
 }
 .sendButton:hover {
-  background: hsl(123, 41%, 70%);
+  background: var(--color-brown-dark);
+  color: #fff;
 }
 .sendButton:focus {
-  background: hsl(123, 41%, 30%);
+  background: var(--color-brown-light);
+  color: var(--color-brown-dark);
+  border: 2px solid var(--color-brown-dark);
 }
 .finished {
   text-align: center;
@@ -202,7 +212,7 @@ body {
   top: 0;
   z-index: 1000;
   background: var(--color-surface);
-  color: var(--color-primary);
+  color: var(--color-brown-dark);
   padding: 18px 8px;
   text-align: center;
   font-weight: bold;
@@ -214,6 +224,7 @@ body {
   backdrop-filter: blur(2px);
   box-shadow: none;
   border: none;
+  border-bottom: 2px solid var(--color-brown-dark);
   display: flex;
   align-items: center;
   justify-content: center;
