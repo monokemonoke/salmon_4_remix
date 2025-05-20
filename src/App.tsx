@@ -10,7 +10,7 @@ interface Message {
 }
 
 const bot = new SalmonBot();
-const PAGE_SIZE = 20; // 1回で読み込む履歴数
+const PAGE_SIZE = 0; // 1回で読み込む履歴数
 
 function mapHistoryToMessage(item: any): Message {
   return {
@@ -29,6 +29,7 @@ function App() {
   const chatAreaRef = useRef<HTMLDivElement>(null);
   const [historyPage, setHistoryPage] = useState(1);
   const [historyLoaded, setHistoryLoaded] = useState(false);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
     if (chatAreaRef.current) {
@@ -36,16 +37,9 @@ function App() {
     }
   }, [messages]);
 
-  // 履歴の初期ロード
   React.useEffect(() => {
-    if (messages.length === 1 && chatHistories.length > 0) {
-      const initial = chatHistories.map(mapHistoryToMessage); // 全件表示
-      setMessages([ ...initial ]);
-      setHistoryPage(1);
-      setHistoryLoaded(chatHistories.length <= PAGE_SIZE);
-    }
-    // eslint-disable-next-line
-  }, []);
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages]);
 
   // スクロールトップで過去履歴を追加
   const handleScroll = () => {
@@ -136,6 +130,7 @@ function App() {
         </div>
       </div>
       {finished && <div className={styles.finished}>チャットを終了しました。</div>}
+      <div ref={messagesEndRef}></div>
     </div>
   );
 }
