@@ -1,7 +1,7 @@
 :root {
   --color-bg: #f6fbf7;
   --color-bg-dark: #232d25;
-  --color-surface: #ffffffcc;
+  --color-surface: #fdfdfdcc;
   --color-surface-dark: #2e3b32cc;
   --color-primary: #43a047;
   --color-primary-dark: #7ed957;
@@ -201,8 +201,8 @@ body {
   letter-spacing: 0.1em;
   border-radius: 0;
   margin-bottom: 0;
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
   box-shadow: none;
   border: none;
   display: flex;
